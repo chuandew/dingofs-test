@@ -1,0 +1,8 @@
+[project]
+name = "dingofs-test"
+version = "0.1.0"
+description = "DingoFS filesystem integration tests"
+requires-python = ">=3.10"
+dependencies = [
+    "pytest>=7.0",
+]

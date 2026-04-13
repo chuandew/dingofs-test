@@ -13,8 +13,8 @@ dingofs-test/
 │   ├── test_regression_*.py     # Bug 回归测试
 │   ├── test_*.py                # DingoFS 特有路径测试
 │   └── ...
+├── pyproject.toml
 ├── pytest.ini
-├── requirements.txt
 └── README.md
 ```
 
@@ -81,18 +81,12 @@ DingoFS 实现相关的 Bug 回归 + 边界测试，标准工具无法替代。
 
 ## 快速开始
 
-### 安装 uv
+### 前置条件
+
+安装 [uv](https://docs.astral.sh/uv/getting-started/installation/)：
 
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
-```
-
-### 初始化
-
-```bash
-cd dingofs-test
-uv venv --python 3.12
-uv pip install -r requirements.txt
 ```
 
 ### 运行
@@ -112,19 +106,9 @@ uv run pytest regression/ --mount-point=/mnt/dingofs
 
 # 只跑 smoke
 uv run pytest --mount-point=/mnt/dingofs -m smoke
-
-# 详细输出
-uv run pytest --mount-point=/mnt/dingofs -v
 ```
 
-### 不使用 uv
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-pytest --mount-point=/mnt/dingofs
-```
+> `uv run` 会自动创建虚拟环境并安装依赖，无需手动操作。
 
 ## 设计原则
 
